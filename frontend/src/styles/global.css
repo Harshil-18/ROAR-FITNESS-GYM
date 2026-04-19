@@ -1,0 +1,159 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    font-family: "Inter", sans-serif;
+    background:
+      radial-gradient(circle at top left, rgba(249, 115, 22, 0.18), transparent 26%),
+      linear-gradient(180deg, #020617 0%, #0f172a 45%, #111827 100%);
+    color: #f8fafc;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  button,
+  input,
+  textarea {
+    font: inherit;
+  }
+}
+
+@layer components {
+  .page-shell {
+    @apply bg-brand-obsidian;
+  }
+
+  .page-hero {
+    @apply relative overflow-hidden bg-cover bg-center bg-no-repeat;
+  }
+
+  .page-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(180deg, rgba(2, 6, 23, 0.15), rgba(2, 6, 23, 0.78)),
+      radial-gradient(circle at top right, rgba(249, 115, 22, 0.22), transparent 25%);
+  }
+
+  .page-hero__content {
+    position: relative;
+    z-index: 1;
+  }
+
+  .content-section {
+    @apply relative;
+  }
+
+  .stack-scroll {
+    @apply relative;
+  }
+
+  .stack-panel {
+    @apply relative;
+    scroll-margin-top: 88px;
+  }
+
+  .stack-panel__surface {
+    @apply relative;
+  }
+
+  @media (min-width: 768px) {
+    .stack-panel {
+      position: relative;
+      top: auto;
+      min-height: auto;
+      padding-bottom: 22px;
+    }
+
+    .stack-panel__surface {
+      min-height: auto;
+      border-radius: 2rem 2rem 0 0;
+      overflow: visible;
+      background: linear-gradient(180deg, rgba(2, 6, 23, 0.42), rgba(2, 6, 23, 0.18));
+      box-shadow: 0 -18px 60px rgba(2, 6, 23, 0.22);
+      isolation: isolate;
+    }
+
+    .stack-panel.page-hero .stack-panel__surface {
+      border-radius: 0;
+      box-shadow: none;
+      background: transparent;
+    }
+
+    .stack-panel:not(.page-hero) .stack-panel__surface {
+      backdrop-filter: blur(18px) saturate(120%);
+      -webkit-backdrop-filter: blur(18px) saturate(120%);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .stack-panel:not(.page-hero) .stack-panel__surface::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      background:
+        linear-gradient(180deg, rgba(2, 6, 23, 0.28) 0%, rgba(2, 6, 23, 0.1) 18%, rgba(2, 6, 23, 0.62) 100%),
+        radial-gradient(circle at top center, rgba(249, 115, 22, 0.12), transparent 28%);
+      pointer-events: none;
+    }
+
+    .stack-panel:not(.page-hero) .stack-panel__surface > * {
+      position: relative;
+      z-index: 1;
+    }
+  }
+
+  .content-section--image {
+    background:
+      linear-gradient(180deg, rgba(15, 23, 42, 0.84), rgba(2, 6, 23, 0.92)),
+      url("https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&w=1800&q=80");
+    background-size: cover;
+    background-position: center;
+  }
+
+  .panel-card {
+    @apply rounded-[2rem] border border-white/10 bg-white/5 p-6 backdrop-blur-xl;
+    box-shadow: 0 25px 80px rgba(2, 6, 23, 0.22);
+  }
+
+  .image-panel {
+    @apply overflow-hidden rounded-[2rem] border border-white/10 bg-cover bg-center;
+    box-shadow: 0 25px 80px rgba(2, 6, 23, 0.28);
+  }
+
+  .section-tag {
+    @apply text-sm font-semibold uppercase tracking-[0.35em] text-orange-200;
+  }
+
+  .input-field {
+    @apply w-full rounded-2xl border border-white/10 bg-slate-950/70 px-4 py-3 text-white outline-none transition focus:border-orange-300;
+  }
+
+  .testimonial-slider {
+    scrollbar-width: none;
+  }
+
+  .testimonial-slider::-webkit-scrollbar {
+    display: none;
+  }
+}
