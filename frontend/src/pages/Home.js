@@ -1,8 +1,8 @@
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import ScrollPanel from "../components/ScrollPanel";
 import { defaultTestimonials } from "../data/testimonials";
-import { getEntries } from "../lib/api";
+import { getUsers } from "../lib/api";
 
 const plans = [
   {
@@ -143,20 +143,19 @@ const starRow = (count) => "\u2605".repeat(count);
 const Home = () => {
   const [reviews, setReviews] = useState(defaultTestimonials);
   const [isLoadingReviews, setIsLoadingReviews] = useState(true);
-  const sliderRef = useRef(null);
 
   useEffect(() => {
     const loadTestimonials = async () => {
       try {
-        const data = await getEntries();
+        const data = await getUsers();
         const feedbackEntries = Array.isArray(data)
           ? data
-              .filter((entry) => entry.feedbackdescription && entry.rating)
+              .filter((entry) => entry.feedback && entry.ratings)
               .map((entry) => ({
                 id: entry.id,
                 name: entry.name,
-                feedback: entry.feedbackdescription,
-                rating: Number(entry.rating),
+                feedback: entry.feedback,
+                rating: Number(entry.ratings),
               }))
           : [];
 
@@ -184,18 +183,6 @@ const Home = () => {
     const totalRating = reviews.reduce((sum, review) => sum + review.rating, 0);
     return (totalRating / reviews.length).toFixed(1);
   }, [reviews]);
-
-  const slideReviews = (direction) => {
-    if (!sliderRef.current) {
-      return;
-    }
-
-    const cardWidth = sliderRef.current.clientWidth >= 1024 ? 420 : 320;
-    sliderRef.current.scrollBy({
-      left: direction * cardWidth,
-      behavior: "smooth",
-    });
-  };
 
   return (
     <div className="page-shell stack-scroll">
@@ -553,36 +540,17 @@ const Home = () => {
               Latest testimonials are loaded from the backend API and shown here on the
               home page.
             </p>
-            <div className="hidden items-center gap-3 md:flex">
-              <button
-                type="button"
-                onClick={() => slideReviews(-1)}
-                className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/5 text-2xl text-white transition hover:bg-white/10"
-                aria-label="Scroll testimonials left"
-              >
-                &larr;
-              </button>
-              <button
-                type="button"
-                onClick={() => slideReviews(1)}
-                className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/5 text-2xl text-white transition hover:bg-white/10"
-                aria-label="Scroll testimonials right"
-              >
-                &rarr;
-              </button>
-            </div>
           </div>
 
           <motion.div
-            ref={sliderRef}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
             variants={fadeUp}
-            className="testimonial-slider flex snap-x snap-mandatory gap-6 overflow-x-auto pb-4"
+            className="grid gap-6 md:grid-cols-2 xl:grid-cols-3"
           >
             {isLoadingReviews ? (
-              <div className="panel-card min-w-[280px] text-slate-300 md:min-w-[340px] lg:min-w-[400px]">
+              <div className="panel-card text-slate-300">
                 Loading testimonials...
               </div>
             ) : null}
@@ -593,7 +561,7 @@ const Home = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.4 }}
                 transition={{ duration: 0.45, delay: index * 0.05 }}
-                className="panel-card min-w-[280px] snap-start md:min-w-[340px] lg:min-w-[400px]"
+                className="panel-card"
               >
                 <div className="flex items-center justify-between gap-4">
                   <h3 className="text-2xl font-bold text-white">{review.name}</h3>

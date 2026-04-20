@@ -61,7 +61,27 @@
   }
 
   .content-section {
-    @apply relative;
+    @apply relative overflow-hidden;
+  }
+
+  .content-section:not(.content-section--image)::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background:
+      linear-gradient(180deg, rgba(2, 6, 23, 0.78), rgba(2, 6, 23, 0.84)),
+      url("https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&w=1800&q=80");
+    background-size: cover;
+    background-position: center;
+    filter: blur(10px) saturate(85%);
+    transform: scale(1.04);
+    pointer-events: none;
+  }
+
+  .content-section:not(.content-section--image) > * {
+    position: relative;
+    z-index: 1;
   }
 
   .stack-scroll {
@@ -82,7 +102,7 @@
       position: relative;
       top: auto;
       min-height: auto;
-      padding-bottom: 22px;
+      padding-bottom: 0;
     }
 
     .stack-panel__surface {
