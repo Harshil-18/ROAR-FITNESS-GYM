@@ -3,7 +3,7 @@ import { render, screen } from "@testing-library/react";
 
 jest.mock("./lib/api", () => ({
   __esModule: true,
-  getEntries: jest.fn().mockResolvedValue([]),
+  getUsers: jest.fn().mockResolvedValue([]),
 }));
 
 import Home from "./pages/Home";

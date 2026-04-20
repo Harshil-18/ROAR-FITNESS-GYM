@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import ScrollPanel from "../components/ScrollPanel";
-import { createEntry, getEntries } from "../lib/api";
-import { defaultTestimonials } from "../data/testimonials";
+import { createUser } from "../lib/api";
 
 const StarButton = ({ filled, onSelect, onHover, onLeave }) => (
   <button
@@ -28,44 +27,11 @@ const fadeUp = {
   }),
 };
 
-const starRow = (count) => "\u2605".repeat(count);
-
 const Testimonials = () => {
   const [form, setForm] = useState({ name: "", feedback: "", rating: 0 });
   const [hoveredRating, setHoveredRating] = useState(0);
-  const [reviews, setReviews] = useState(defaultTestimonials);
-  const [isLoading, setIsLoading] = useState(true);
+  const [reviews, setReviews] = useState([]);
   const [submitState, setSubmitState] = useState({ type: "", message: "" });
-
-  useEffect(() => {
-    const loadTestimonials = async () => {
-      try {
-        const data = await getEntries();
-        const feedbackEntries = Array.isArray(data)
-          ? data
-              .filter((entry) => entry.feedbackdescription && entry.rating)
-              .map((entry) => ({
-                id: entry.id,
-                name: entry.name,
-                feedback: entry.feedbackdescription,
-                rating: Number(entry.rating),
-              }))
-          : [];
-
-        setReviews(feedbackEntries.length ? feedbackEntries : defaultTestimonials);
-      } catch (error) {
-        console.error("Unable to load testimonials", error);
-        setSubmitState({
-          type: "error",
-          message: "API not reachable, so fallback testimonials are being shown.",
-        });
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    loadTestimonials();
-  }, []);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -79,21 +45,21 @@ const Testimonials = () => {
     }
 
     try {
-      const createdReview = await createEntry({
+      const createdReview = await createUser({
         name: form.name,
         email: "",
-        phonenumber: "",
-        rating: form.rating,
-        contactdescription: "",
-        feedbackdescription: form.feedback,
+        contact: "",
+        ratings: form.rating,
+        query: "",
+        feedback: form.feedback,
       });
 
       setReviews((current) => [
         {
           id: createdReview.id,
           name: createdReview.name,
-          feedback: createdReview.feedbackdescription,
-          rating: Number(createdReview.rating),
+          feedback: createdReview.feedback,
+          rating: Number(createdReview.ratings),
         },
         ...current,
       ]);
@@ -214,31 +180,45 @@ const Testimonials = () => {
             </button>
           </motion.form>
 
-          {/* <div className="grid gap-5 md:grid-cols-2">
-            {isLoading ? (
-              <div className="panel-card text-slate-300">Loading testimonials...</div>
-            ) : null}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            custom={0.12}
+            variants={fadeUp}
+            className="space-y-6"
+          >
+            <div className="relative overflow-hidden rounded-[2rem] border border-white/10">
+              <img
+                src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?auto=format&fit=crop&w=1400&q=80"
+                alt="Members training in gym"
+                className="h-[320px] w-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/25 to-transparent" />
+              <div className="absolute bottom-0 p-6">
+                <p className="text-sm uppercase tracking-[0.24em] text-orange-200">
+                  Real Member Stories
+                </p>
+                <h3 className="mt-2 text-2xl font-bold text-white">
+                  Every review helps new visitors trust your gym.
+                </h3>
+              </div>
+            </div>
 
-            {reviews.map((review, index) => (
-              <motion.article
-                key={review.id || `${review.name}-${index}`}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.2 }}
-                custom={index * 0.08}
-                variants={fadeUp}
-                className="panel-card"
-              >
-                <div className="flex items-center justify-between gap-4">
-                  <h3 className="text-xl font-bold text-white">{review.name}</h3>
-                  <span className="text-lg tracking-wider text-amber-300">
-                    {starRow(review.rating)}
-                  </span>
-                </div>
-                <p className="mt-4 leading-7 text-slate-300">{review.feedback}</p>
-              </motion.article>
-            ))}
-          </div> */}
+            <div className="panel-card space-y-4">
+              <p className="section-tag">Why Testimonials Matter</p>
+              <p className="leading-8 text-slate-300">
+                Positive reviews create social proof and make your brand feel credible.
+                Members can quickly see the experience, support, and results they can
+                expect after joining.
+              </p>
+              <p className="leading-8 text-slate-300">
+                This section is designed to sit beside your form so users can read the
+                value of sharing feedback before submitting their own review.
+              </p>
+            </div>
+          </motion.div>
+
         </div>
       </ScrollPanel>
     </div>

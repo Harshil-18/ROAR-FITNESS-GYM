@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import ScrollPanel from "../components/ScrollPanel";
-import { createEntry } from "../lib/api";
+import { createUser } from "../lib/api";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 32 },
@@ -28,13 +28,13 @@ const Contact = () => {
     }
 
     try {
-      await createEntry({
+      await createUser({
         name: form.name,
         email: form.email,
-        phonenumber: form.phone,
-        rating: null,
-        contactdescription: form.message,
-        feedbackdescription: "",
+        contact: form.phone,
+        ratings: null,
+        query: form.message,
+        feedback: "",
       });
       setForm({ name: "", email: "", phone: "", message: "" });
       setSubmitState({

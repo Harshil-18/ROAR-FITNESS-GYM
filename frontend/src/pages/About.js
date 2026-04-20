@@ -5,15 +5,18 @@ import ScrollPanel from "../components/ScrollPanel";
 const values = [
   {
     title: "Expert Coaching",
-    description: "Trainers combine strength science, technique correction, and motivation that keeps members improving.",
+    description:
+      "Trainers combine strength science, technique correction, and motivation that keeps members improving.",
   },
   {
     title: "Premium Space",
-    description: "From heavy lifting zones to recovery corners, the layout is designed to feel focused, clean, and high energy.",
+    description:
+      "From heavy lifting zones to recovery corners, the layout is designed to feel focused, clean, and high energy.",
   },
   {
     title: "Real Community",
-    description: "Members train with shared ambition, so beginners and advanced athletes both feel supported and challenged.",
+    description:
+      "Members train with shared ambition, so beginners and advanced athletes both feel supported and challenged.",
   },
 ];
 
@@ -30,7 +33,7 @@ const team = [
     role: "Head Strength Coach/Mobility and Conditioning/Nutrition and Transformation",
     image:
       "https://images.unsplash.com/photo-1549476464-37392f717541?auto=format&fit=crop&w=1200&q=80",
-  }
+  },
 ];
 
 const fadeUp = {
@@ -54,7 +57,12 @@ const About = () => {
         }}
       >
         <div className="page-hero__content mx-auto max-w-7xl px-4 py-20 sm:px-6 md:py-28">
-          <motion.p initial="hidden" animate="visible" variants={fadeUp} className="section-tag">
+          <motion.p
+            initial="hidden"
+            animate="visible"
+            variants={fadeUp}
+            className="section-tag"
+          >
             About Us
           </motion.p>
           <motion.h1
@@ -64,7 +72,8 @@ const About = () => {
             variants={fadeUp}
             className="max-w-3xl font-display text-4xl font-bold leading-tight text-white md:text-6xl"
           >
-            A gym built to feel cinematic, disciplined, and welcoming every single day.
+            A gym built to feel cinematic, disciplined, and welcoming every
+            single day.
           </motion.h1>
           <motion.p
             initial="hidden"
@@ -73,8 +82,9 @@ const About = () => {
             variants={fadeUp}
             className="mt-6 max-w-2xl text-lg leading-8 text-slate-200"
           >
-            Roar Fitness is designed for people who want serious equipment, coaching that
-            actually helps, and a premium training atmosphere that keeps momentum high.
+            Roar Fitness is designed for people who want serious equipment,
+            coaching that actually helps, and a premium training atmosphere that
+            keeps momentum high.
           </motion.p>
         </div>
       </ScrollPanel>
@@ -90,17 +100,19 @@ const About = () => {
           >
             <p className="section-tag">Our Story</p>
             <h2 className="font-display text-3xl font-bold text-white md:text-4xl">
-              We mix heavy training culture with polished design and modern coaching.
+              We mix heavy training culture with polished design and modern
+              coaching.
             </h2>
             <p className="text-base leading-8 text-slate-300">
-              The goal is simple: when members walk in, they should instantly feel like
-              they want to train. That means strong visuals, clean equipment lines,
-              supportive coaches, and programming that works for both transformations and
-              performance.
+              The goal is simple: when members walk in, they should instantly
+              feel like they want to train. That means strong visuals, clean
+              equipment lines, supportive coaches, and programming that works
+              for both transformations and performance.
             </p>
             <p className="text-base leading-8 text-slate-300">
-              Whether someone is coming in for body recomposition, strength gain, or
-              general fitness, the experience is built to be motivating at every stage.
+              Whether someone is coming in for body recomposition, strength
+              gain, or general fitness, the experience is built to be motivating
+              at every stage.
             </p>
           </motion.div>
 
@@ -110,16 +122,37 @@ const About = () => {
             viewport={{ once: true, amount: 0.2 }}
             custom={0.12}
             variants={fadeUp}
-            className="image-panel min-h-[420px]"
-            style={{
-              backgroundImage:
-                "linear-gradient(180deg, rgba(15, 23, 42, 0.1), rgba(2, 6, 23, 0.55)), url('https://images.unsplash.com/photo-1571902943202-507ec2618e8f?auto=format&fit=crop&w=1400&q=80')",
-            }}
-          />
+            className="panel-card space-y-5"
+          >
+            <p className="section-tag">Coach Details</p>
+            <h3 className="font-display text-3xl font-bold text-white">
+              Rahul Sharma
+            </h3>
+            <p className="text-sm uppercase tracking-[0.26em] text-orange-200">
+              Head Strength Coach
+            </p>
+            <p className="leading-8 text-slate-300">
+              Rahul leads advanced strength programming, mobility corrections,
+              and transformation planning. His coaching style focuses on safe
+              technique, measurable progress, and long-term consistency for
+              every member level.
+            </p>
+            <div className="rounded-2xl border border-white/10 bg-slate-900/50 p-4">
+              <p className="text-sm uppercase tracking-[0.24em] text-slate-300">
+                Specialties
+              </p>
+              <p className="mt-3 leading-7 text-slate-200">
+                Strength Training • Conditioning • Mobility • Nutrition Guidance
+              </p>
+            </div>
+          </motion.div>
         </div>
       </ScrollPanel>
 
-      <ScrollPanel zIndex={3} className="content-section content-section--image">
+      <ScrollPanel
+        zIndex={3}
+        className="content-section content-section--image"
+      >
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6">
           <div className="mb-8">
             <p className="section-tag">Why Members Stay</p>
@@ -138,9 +171,15 @@ const About = () => {
                 variants={fadeUp}
                 className="panel-card"
               >
-                <p className="text-sm uppercase tracking-[0.3em] text-orange-200">0{index + 1}</p>
-                <h3 className="mt-4 text-2xl font-bold text-white">{value.title}</h3>
-                <p className="mt-4 leading-7 text-slate-300">{value.description}</p>
+                <p className="text-sm uppercase tracking-[0.3em] text-orange-200">
+                  0{index + 1}
+                </p>
+                <h3 className="mt-4 text-2xl font-bold text-white">
+                  {value.title}
+                </h3>
+                <p className="mt-4 leading-7 text-slate-300">
+                  {value.description}
+                </p>
               </motion.article>
             ))}
           </div>
@@ -160,7 +199,9 @@ const About = () => {
                 variants={fadeUp}
                 className="panel-card text-center"
               >
-                <p className="text-4xl font-extrabold text-white">{stat.value}</p>
+                <p className="text-4xl font-extrabold text-white">
+                  {stat.value}
+                </p>
                 <p className="mt-3 text-sm uppercase tracking-[0.24em] text-slate-300">
                   {stat.label}
                 </p>
@@ -178,31 +219,87 @@ const About = () => {
               Coach with different specialties, one shared standard.
             </h2>
           </div>
-          <div className="grid gap-6 md:grid-cols-3">
-            {team.map((member, index) => (
-              <motion.article
-                key={member.name}
+          <div className="grid items-start gap-y-6 gap-x-4 grid-cols-1 lg:grid-cols-[1fr_2fr]">
+            {/* LEFT SIDE */}
+            <div className="grid gap-6 max-w-sm">
+              {team.map((member, index) => (
+                <motion.article
+                  key={member.name}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, amount: 0.2 }}
+                  custom={index * 0.1}
+                  variants={fadeUp}
+                  className="overflow-hidden rounded-[2rem] border border-white/10 bg-slate-900/70"
+                >
+                  <div
+                    className="h-80 bg-cover bg-center"
+                    style={{
+                      backgroundImage: `linear-gradient(180deg, rgba(15, 23, 42, 0.05), rgba(2, 6, 23, 0.55)), url('${member.image}')`,
+                    }}
+                  />
+                  <div className="space-y-2 p-6">
+                    <p className="text-sm uppercase tracking-[0.28em] text-orange-200">
+                      {member.role}
+                    </p>
+                    <h3 className="text-2xl font-bold text-white">
+                      {member.name}
+                    </h3>
+                  </div>
+                </motion.article>
+              ))}
+            </div>
+
+            {/* RIGHT SIDE (FIXED) */}
+            <div className="flex flex-col gap-6 h-full">
+              {/* TOP CARD */}
+              <motion.div
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.2 }}
-                custom={index * 0.1}
+                custom={0.12}
                 variants={fadeUp}
-                className="overflow-hidden rounded-[2rem] border border-white/10 bg-slate-900/70"
+                className="panel-card space-y-5"
               >
-                <div
-                  className="h-80 bg-cover bg-center"
-                  style={{
-                    backgroundImage: `linear-gradient(180deg, rgba(15, 23, 42, 0.05), rgba(2, 6, 23, 0.55)), url('${member.image}')`,
-                  }}
-                />
-                <div className="space-y-2 p-6">
-                  <p className="text-sm uppercase tracking-[0.28em] text-orange-200">
-                    {member.role}
+                <p className="section-tag">Coach Details</p>
+                <h3 className="font-display text-3xl font-bold text-white">
+                  Rahul Sharma
+                </h3>
+                <p className="text-sm uppercase tracking-[0.26em] text-orange-200">
+                  Head Strength Coach
+                </p>
+                <p className="leading-8 text-slate-300">
+                  Rahul leads advanced strength programming, mobility
+                  corrections, and transformation planning.
+                </p>
+
+                <div className="rounded-2xl border border-white/10 bg-slate-900/50 p-4">
+                  <p className="text-sm uppercase tracking-[0.24em] text-slate-300">
+                    Specialties
                   </p>
-                  <h3 className="text-2xl font-bold text-white">{member.name}</h3>
+                  <p className="mt-3 leading-7 text-slate-200">
+                    Strength Training • Conditioning • Mobility • Nutrition
+                    Guidance
+                  </p>
                 </div>
-              </motion.article>
-            ))}
+              </motion.div>
+
+              {/* BOTTOM CARD */}
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.2 }}
+                custom={0.2}
+                variants={fadeUp}
+                className="panel-card space-y-5"
+              >
+                <p className="section-tag">Experience</p>
+                <p className="text-slate-300 leading-7">
+                  8+ years of coaching experience with 1000+ successful
+                  transformations.
+                </p>
+              </motion.div>
+            </div>
           </div>
         </div>
       </ScrollPanel>
