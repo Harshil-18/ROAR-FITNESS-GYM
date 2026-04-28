@@ -6,25 +6,25 @@ const values = [
   {
     title: "Expert Coaching",
     description:
-      "Trainers combine strength science, technique correction, and motivation that keeps members improving.",
+      "Expert coache who guide, correct, and push you to improve every day.",
   },
   {
     title: "Premium Space",
     description:
-      "From heavy lifting zones to recovery corners, the layout is designed to feel focused, clean, and high energy.",
+      "A clean, high-energy space built for serious training and recovery.",
   },
   {
     title: "Real Community",
     description:
-      "Members train with shared ambition, so beginners and advanced athletes both feel supported and challenged.",
+      "A supportive community where everyone trains, improves, and grows together.",
   },
 ];
 
 const stats = [
-  { value: "8+", label: "Years coaching results" },
-  { value: "1200+", label: "Members transformed" },
-  { value: "35", label: "Weekly classes" },
-  { value: "24/7", label: "Member access" },
+  { value: "8+", label: "Years of Experience" },
+  { value: "100+", label: "Transformations Achieved" },
+  { value: "35", label: "Classes Every Week" },
+  { value: "Mon–Sat", label: "Training Schedule" },
 ];
 
 const team = [
@@ -72,8 +72,7 @@ const About = () => {
             variants={fadeUp}
             className="max-w-3xl font-display text-4xl font-bold leading-tight text-white md:text-6xl"
           >
-            A gym built to feel cinematic, disciplined, and welcoming every
-            single day.
+            A gym built for discipline, energy, and real results—every single day.
           </motion.h1>
           <motion.p
             initial="hidden"
@@ -82,9 +81,7 @@ const About = () => {
             variants={fadeUp}
             className="mt-6 max-w-2xl text-lg leading-8 text-slate-200"
           >
-            Roar Fitness is designed for people who want serious equipment,
-            coaching that actually helps, and a premium training atmosphere that
-            keeps momentum high.
+            Built for those who take fitness seriously—with powerful equipment, expert coaching, and an environment that keeps you consistent.
           </motion.p>
         </div>
       </ScrollPanel>
@@ -100,19 +97,13 @@ const About = () => {
           >
             <p className="section-tag">Our Story</p>
             <h2 className="font-display text-3xl font-bold text-white md:text-4xl">
-              We mix heavy training culture with polished design and modern
-              coaching.
+              Where serious training meets smart coaching and a focused environment.
             </h2>
             <p className="text-base leading-8 text-slate-300">
-              The goal is simple: when members walk in, they should instantly
-              feel like they want to train. That means strong visuals, clean
-              equipment lines, supportive coaches, and programming that works
-              for both transformations and performance.
+              Our goal is simple—when you walk in, you feel ready to train. Clean space, powerful setup, and coaching that drives results.
             </p>
             <p className="text-base leading-8 text-slate-300">
-              Whether someone is coming in for body recomposition, strength
-              gain, or general fitness, the experience is built to be motivating
-              at every stage.
+              Whether your goal is fat loss, strength, or overall fitness, we help you stay motivated and consistent at every stage.
             </p>
           </motion.div>
 
@@ -132,17 +123,14 @@ const About = () => {
               Head Strength Coach
             </p>
             <p className="leading-8 text-slate-300">
-              Rahul leads advanced strength programming, mobility corrections,
-              and transformation planning. His coaching style focuses on safe
-              technique, measurable progress, and long-term consistency for
-              every member level.
+              Rahul specializes in strength training, mobility, and body transformations—focused on proper form, steady progress, and long-term results.
             </p>
             <div className="rounded-2xl border border-white/10 bg-slate-900/50 p-4">
               <p className="text-sm uppercase tracking-[0.24em] text-slate-300">
-                Specialties
+                Expertise
               </p>
               <p className="mt-3 leading-7 text-slate-200">
-                Strength Training • Conditioning • Mobility • Nutrition Guidance
+                Strength • Conditioning • Mobility • Nutrition
               </p>
             </div>
           </motion.div>
@@ -157,7 +145,7 @@ const About = () => {
           <div className="mb-8">
             <p className="section-tag">Why Members Stay</p>
             <h2 className="font-display text-3xl font-bold text-white md:text-4xl">
-              More than equipment, it is the full experience.
+              More than a gym—it’s a complete fitness experience.
             </h2>
           </div>
           <div className="grid gap-6 md:grid-cols-3">
@@ -216,7 +204,7 @@ const About = () => {
           <div className="mb-8">
             <p className="section-tag">Our Team</p>
             <h2 className="font-display text-3xl font-bold text-white md:text-4xl">
-              Coach with different specialties, one shared standard.
+              Coach with different experties, one shared standard.
             </h2>
           </div>
           <div className="grid items-start gap-y-6 gap-x-4 grid-cols-1 lg:grid-cols-[1fr_2fr]">

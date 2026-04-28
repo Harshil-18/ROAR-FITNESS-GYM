@@ -30,6 +30,7 @@ const fadeUp = {
 const Testimonials = () => {
   const [form, setForm] = useState({ name: "", feedback: "", rating: 0 });
   const [hoveredRating, setHoveredRating] = useState(0);
+  // eslint-disable-next-line no-unused-vars
   const [reviews, setReviews] = useState([]);
   const [submitState, setSubmitState] = useState({ type: "", message: "" });
 
@@ -67,13 +68,13 @@ const Testimonials = () => {
       setHoveredRating(0);
       setSubmitState({
         type: "success",
-        message: "Your testimonial has been saved to the database.",
+        message: "Thanks for your feedback—we appreciate it and are working to improve your gym experience.",
       });
     } catch (error) {
-      console.error("Unable to save testimonial", error);
+      console.error("Unable to save feedback", error);
       setSubmitState({
         type: "error",
-        message: error.message || "Unable to save testimonial right now.",
+        message: error.message || "Unable to save feedback right now.",
       });
     }
   };
@@ -99,7 +100,7 @@ const Testimonials = () => {
             variants={fadeUp}
             className="max-w-3xl font-display text-4xl font-bold leading-tight text-white md:text-6xl"
           >
-            Results feel more believable when real members tell the story.
+            Real transformations speak louder—hear directly from members who’ve lived the journey.
           </motion.h1>
           <motion.p
             initial="hidden"
@@ -108,8 +109,7 @@ const Testimonials = () => {
             variants={fadeUp}
             className="mt-6 max-w-2xl text-lg leading-8 text-slate-200"
           >
-            This page now sends review data to Postgres and loads the latest testimonials
-            back from the API.
+            See what our members are saying and share your own fitness journey with us.
           </motion.p>
         </div>
       </ScrollPanel>
@@ -176,7 +176,7 @@ const Testimonials = () => {
               type="submit"
               className="rounded-full bg-brand-accent px-6 py-3 font-semibold text-slate-950 transition hover:bg-orange-300"
             >
-              Submit Review
+              Share Your Experience
             </button>
           </motion.form>
 
@@ -197,24 +197,21 @@ const Testimonials = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/25 to-transparent" />
               <div className="absolute bottom-0 p-6">
                 <p className="text-sm uppercase tracking-[0.24em] text-orange-200">
-                  Real Member Stories
+                  Success Stories from Our Members
                 </p>
                 <h3 className="mt-2 text-2xl font-bold text-white">
-                  Every review helps new visitors trust your gym.
+                  Your story inspires others to start their fitness journey with confidence.
                 </h3>
               </div>
             </div>
 
             <div className="panel-card space-y-4">
-              <p className="section-tag">Why Testimonials Matter</p>
+              <p className="section-tag">Why Member Feedback Matters</p>
               <p className="leading-8 text-slate-300">
-                Positive reviews create social proof and make your brand feel credible.
-                Members can quickly see the experience, support, and results they can
-                expect after joining.
+                Honest feedback builds trust and shows what new members can achieve here—real support, real progress, real results.
               </p>
               <p className="leading-8 text-slate-300">
-                This section is designed to sit beside your form so users can read the
-                value of sharing feedback before submitting their own review.
+                Your feedback helps us grow and motivates others—share your experience and be part of someone else’s transformation.
               </p>
             </div>
           </motion.div>

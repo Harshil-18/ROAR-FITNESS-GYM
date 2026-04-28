@@ -165,7 +165,7 @@ const Home = () => {
           setReviews(defaultTestimonials);
         }
       } catch (error) {
-        console.error("Unable to load testimonials", error);
+        console.error("Unable to load feedbacks", error);
         setReviews(defaultTestimonials);
       } finally {
         setIsLoadingReviews(false);
@@ -196,10 +196,10 @@ const Home = () => {
       >
         <div className="page-hero__content mx-auto grid max-w-7xl gap-10 px-4 py-20 sm:px-6 lg:grid-cols-[1.15fr_0.85fr] lg:items-center lg:py-28">
           <motion.div initial="hidden" animate="visible" variants={fadeUp} className="space-y-6">
-            <p className="section-tag">Premium Gym Portfolio</p>
+            <p className="section-tag">Elite Fitness Experience</p>
             <AnimatedWords
-              text="Train in a space where every section feels powerful, polished, and built for results."
-              className="max-w-3xl font-display text-4xl font-bold leading-tight text-white md:text-6xl"
+              text="Train in an environment designed to push limits, build strength, and deliver real results."
+              className="max-w-3xl font-display text-5xl font-bold leading-tight text-white md:text-6xl"
             />
             <motion.p
               initial={{ opacity: 0, y: 22 }}
@@ -207,22 +207,20 @@ const Home = () => {
               transition={{ duration: 0.65, delay: 0.45 }}
               className="max-w-2xl text-lg leading-8 text-slate-200"
             >
-              Roar Fitness combines premium equipment, guided programming, membership
-              plans, and a bold visual experience so your gym website feels as strong
-              as the brand behind it.
+              We combine world-class equipment, expert coaching, and structured programs to help you become stronger, fitter, and more confident every day.
             </motion.p>
             <div className="flex flex-wrap gap-4">
               <a
                 href="#plans"
                 className="rounded-full bg-brand-accent px-6 py-3 font-semibold text-slate-950 shadow-glow transition hover:scale-[1.02]"
               >
-                View Memberships
+                Explore Memberships
               </a>
               <a
                 href="#spaces"
                 className="rounded-full border border-white/15 bg-white/5 px-6 py-3 font-semibold text-white transition hover:bg-white/10"
               >
-                Explore Facilities
+                Discover Our Gym
               </a>
             </div>
           </motion.div>
@@ -254,8 +252,8 @@ const Home = () => {
                   <p className="text-sm font-semibold uppercase tracking-[0.25em] text-orange-100">
                     Open Access
                   </p>
-                  <p className="mt-10 text-4xl font-extrabold">24/7</p>
-                  <p className="mt-2 text-sm text-slate-100">Built for every schedule.</p>
+                  <p className="mt-10 text-4xl font-extrabold">Mon–Sat</p>
+                  <p className="mt-2 text-sm text-slate-100">Morning: 6AM – 10AM | Evening: 4PM – 9PM</p>
                 </motion.div>
                 <motion.div
                   className="rounded-[1.75rem] bg-cover bg-center p-5 text-white"
@@ -267,11 +265,11 @@ const Home = () => {
                   transition={{ duration: 0.25 }}
                 >
                   <p className="text-sm uppercase tracking-[0.25em] text-slate-200">
-                    Member Results
+                    Proven Results
                   </p>
                   <p className="mt-10 text-4xl font-extrabold">92%</p>
                   <p className="mt-2 text-sm text-slate-100">
-                    Report stronger consistency in 90 days.
+                    Members see real progress in just 90 days.
                   </p>
                 </motion.div>
               </div>
@@ -306,15 +304,13 @@ const Home = () => {
             variants={fadeUp}
             className="panel-card space-y-5"
           >
-            <p className="section-tag">Home Page Focus</p>
+            <p className="section-tag">Why Choose Us</p>
             <AnimatedWords
-              text="Your homepage now feels like a modern gym brand instead of a plain color block."
+              text="More than a gym—this is where transformation begins."
               className="block font-display text-3xl font-bold text-white md:text-4xl"
             />
             <p className="leading-8 text-slate-300">
-              Each major section uses a different background image treatment so the site
-              feels more alive as users scroll. The visual direction stays consistent,
-              but every section has its own atmosphere.
+              Every corner of our gym is designed to energize you—different zones, one powerful experience focused on your growth.
             </p>
           </motion.div>
 
@@ -345,15 +341,14 @@ const Home = () => {
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6">
           <div className="mb-8 flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
             <div>
-              <p className="section-tag">Membership Plans</p>
+              <p className="section-tag">Choose Your Plan</p>
               <AnimatedWords
-                text="Packages that match beginners, regular members, and full transformations."
+                text="Flexible plans built for beginners, dedicated members, and complete transformations."
                 className="block font-display text-3xl font-bold text-white md:text-4xl"
               />
             </div>
             <p className="max-w-xl text-slate-300">
-              The plans section is now part of the website flow and designed like a real
-              gym portfolio, with pricing, features, and stronger visual separation.
+              Simple pricing, powerful features—everything you need to start and stay consistent on your fitness journey.
             </p>
           </div>
 
@@ -421,9 +416,9 @@ const Home = () => {
       <ScrollPanel zIndex={4} className="content-section">
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6">
           <div className="mb-8">
-            <p className="section-tag">Classes</p>
+            <p className="section-tag">Training Programs</p>
             <AnimatedWords
-              text="Daily programming that gives the website a fuller gym identity."
+              text="High-energy classes designed to build strength, endurance, and discipline."
               className="block font-display text-3xl font-bold text-white md:text-4xl"
             />
           </div>
@@ -461,9 +456,9 @@ const Home = () => {
       <ScrollPanel id="spaces" zIndex={5} className="content-section">
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6">
           <div className="mb-8">
-            <p className="section-tag">Facilities</p>
+            <p className="section-tag">Our Facilities</p>
             <AnimatedWords
-              text="Different image panels appear as people scroll through the site."
+              text="Explore premium spaces built for performance, recovery, and results."
               className="block font-display text-3xl font-bold text-white md:text-4xl"
             />
           </div>
@@ -510,9 +505,9 @@ const Home = () => {
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6">
           <div className="mb-8 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
             <div>
-              <p className="section-tag">Member Ratings</p>
+              <p className="section-tag">What Our Members Say</p>
               <AnimatedWords
-                text="Ratings and testimonials now appear on the home page before the footer."
+                text="Real feedback from real members who trusted the process and achieved results."
                 className="block font-display text-3xl font-bold text-white md:text-4xl"
               />
             </div>
@@ -523,13 +518,13 @@ const Home = () => {
                   {starRow(Math.round(Number(averageRating) || 0))}
                 </p>
                 <p className="mt-2 text-sm uppercase tracking-[0.24em] text-slate-300">
-                  Average Rating
+                  Overall Rating
                 </p>
               </div>
               <div className="panel-card min-w-[180px] px-5 py-4 text-center">
                 <p className="text-4xl font-extrabold text-white">{reviews.length}</p>
                 <p className="mt-2 text-sm uppercase tracking-[0.24em] text-slate-300">
-                  Total Reviews
+                  Member Reviews
                 </p>
               </div>
             </div>
@@ -537,8 +532,7 @@ const Home = () => {
 
           <div className="mb-6 flex items-center justify-between gap-4">
             <p className="max-w-2xl text-slate-300">
-              Latest testimonials are loaded from the backend API and shown here on the
-              home page.
+              See the latest experiences shared by our members.
             </p>
           </div>
 
@@ -551,7 +545,7 @@ const Home = () => {
           >
             {isLoadingReviews ? (
               <div className="panel-card text-slate-300">
-                Loading testimonials...
+                Loading member experiences...
               </div>
             ) : null}
             {reviews.map((review, index) => (

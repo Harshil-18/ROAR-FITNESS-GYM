@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Testimonials from "./pages/Testimonials";
 import Contact from "./pages/Contact";
+import WhatsAppFloat from "./components/WhatsAppFloat";
 
 function ScrollToTopOnRouteChange() {
   const { pathname } = useLocation();
@@ -32,6 +33,7 @@ function App() {
           </Routes>
         </main>
         <Footer />
+        <WhatsAppFloat />
       </div>
     </Router>
   );
